@@ -13,7 +13,7 @@ In questo esempio, strutturiamo il databse che modellizza una biblioteca
 - genres
 - conditions
 
-### Table: Books
+### Table: books
 
 - id: INT || BIGINT AI NOTNULL UNIQUE PK INDEX
 - title: VARCHAR(255) NOT NULL
@@ -23,10 +23,23 @@ In questo esempio, strutturiamo il databse che modellizza una biblioteca
 - ?series: VARCHAR(20) NULL
 - note: TEXT NULL
 
+### Table: genres
+
+- id
+- name 
+- slug
+
+### Pivot Talbe: book_genre
+
+- id
+- book_id
+- genre_id
+
 ### Table: copies
 
 - id
-- condition_id FK
+- book_id (FK)
+- condition_id (FK)
 <!-- In un database relazionale, l’abbreviazione FK sta per Foreign Key, cioè chiave esterna.
 Una Foreign Key (FK) è un vincolo (constraint) che serve a collegare due tabelle tra loro, garantendo la coerenza dei dati.
 In pratica, una FK è un campo (o un insieme di campi) che fa riferimento alla chiave primaria (PK) di un’altra tabella.
@@ -61,19 +74,25 @@ IN SINTESI
 - language: CHAR(5) DEFAULT(it-IT) // it-IT
 - note: TEXT NULL
 
+### Table: loans
+- id
+- copy_id (FK)
+- user_id (FK)
+- start_date
+- end_date
+
 ### Table: conditions
 
 - id
 - name
 - slug (nome senza spazi, tutto minuscolo)
 
-### Table: genres
+### Table: users
 
 - id
-- name 
-- slug
-
-### Pivot Talbe: book_genre
-- id
-- book_id
-- genre_id
+- name
+- last_name
+- address
+- email
+- phone
+- registration_number
