@@ -18,9 +18,8 @@ In questo esempio, strutturiamo il databse che modellizza una biblioteca
 - id: INT || BIGINT AI NOTNULL UNIQUE PK INDEX
 - title: VARCHAR(255) NOT NULL
 - author: VARCHAR(150) NOT NULL
-- position: VARCHAR(20) UNIQUE NOT NULL
 - plot: TEXT NULL
-- ?series: VARCHAR(20) NULL
+- age_range (series): VARCHAR(20) NULL
 - note: TEXT NULL
 
 ### Table: genres
@@ -72,6 +71,7 @@ IN SINTESI
 - year: YEAR NULL
 - is_available: TINNYINT NOT NULL
 - language: CHAR(5) DEFAULT(it-IT) // it-IT
+- position: VARCHAR(20) UNIQUE NOT NULL
 - note: TEXT NULL
 
 ### Table: loans
